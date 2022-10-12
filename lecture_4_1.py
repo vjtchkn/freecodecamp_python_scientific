@@ -1,16 +1,15 @@
-astr = "Hello Bob"
+# Function that says hello in the specified language
 
-try:
-    istr = int(astr)
-except:
-    istr = -1
 
-print("First", istr)
+def greet(lang):
+    if lang == "es":
+        print("Hola")
+    elif lang == "fr":
+        print("Bonjour")
+    else:
+        print("Hello")
 
-bstr = "123"
-try:
-    jstr = int(bstr)
-except:
-    jstr = -1
 
-print("Second", jstr)
+greet("en")
+greet("es")
+greet("fr")

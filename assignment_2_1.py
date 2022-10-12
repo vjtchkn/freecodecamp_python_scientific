@@ -1,2 +1,4 @@
-# the code below should work now
-print("hello world")
+# Ask user for input and print greeting
+
+name = input("Enter your name: ")
+print("Hello", name)

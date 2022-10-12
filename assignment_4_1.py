@@ -1,16 +1,17 @@
-# Ask the user for number of hours and hourly rate
-# Calculate gross pay with any hours above 40 have the rate of 1.5 times the basic rate
-# Display the gross pay to the user
+# Prompt user for hours and hourly rate
+# Calculate gross pay using function
+# Hours above 40 have 1.5 times hourly rate
 
-hours = input("Enter Hours: ")
-hours = float(hours)
 
-rate = input("Enter Rate: ")
-rate = float(rate)
+def computepay(h, r):
+    if h <= 40:
+        return h * r
+    else:
+        return 40 * r + (h - 40) * r * 1.5
 
-if hours <= 40:
-    pay = hours * rate
-else:
-    pay = 40 * rate + (hours - 40) * rate * 1.5
 
-print(pay)
+hours = float(input("Enter Hours: "))
+rate = float(input("Enter Rate: "))
+
+pay = computepay(h=hours, r=rate)
+print("Pay", pay)

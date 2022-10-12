@@ -1,53 +1,60 @@
-# Read in mbox.txt, print the object
-long = open("mbox.txt", "r")
-short = open("mbox-short.txt", "r")
-print(long)
-print(short)
+# Create a list and change a specific value in it
+lotto = [2, 14, 24, 41, 63]
+print(lotto)
+lotto[2] = 30
+print(lotto)
 
-# Print lines in the file using a for loop
-# for line in short:
-#     print(line)
+# 2 ways to loop through a list
+friends = ["Adam", "Betty", "Cindy"]
 
-# Count the number of lines in the file
-long = open("mbox.txt", "r")
-count = 0
-for line in long:
-    count += 1
-print("Line count:", count)
+for friend in friends:
+    print("Hello", friend)
 
-# Read file as a string
-short = open("mbox-short.txt", "r")
-text = short.read()
-print(len(text))
-print(text[:20])
+for i in range(len(friends)):
+    friend = friends[i]
+    print("Goodbye", friend)
 
-# Print lines starting with "From:"
-short = open("mbox-short.txt", "r")
-for line in short:
-    line = line.strip()
-    if line.startswith("From:"):
-        print(line)
+# List methods
+stuff = list()
+stuff.append("book")
+stuff.append("apple")
+stuff.append("computer")
+print(stuff)
 
-# Print all lines from @uct.ac.za
-short = open("mbox-short.txt", "r")
-for line in short:
-    line = line.strip()
-    if not "@uct.ac.za" in line:
-        continue
-    print(line)
+stuff.sort()
+print(stuff)
 
-# Make the file name a user input and count the lines starting with "Subject:"
-# Catch error if the file does not exist
-fname = input("Enter the file name: ")
-try:
-    fhand = open(fname, "r")
-except:
-    print("File cannot be opened:", fname)
-    quit()
+# in operator
+print("book" in stuff)
 
-count = 0
+# Ask user for numbers and repeatedly return average using a list
+numlist = list()
+while True:
+    inp = input("Enter a number: ")
+    if inp == "done":
+        break
+    else:
+        numlist.append(float(inp))
+average = sum(numlist) / len(numlist)
+print("Average:", average)
+
+# Print days of the week from email log
+fhand = open("mbox-short.txt")
 for line in fhand:
     line = line.strip()
-    if line.startswith("Subject:"):
-        count += 1
-print("There were", count, "subject lines in", fname)
+    if not line.startswith("From "):
+        continue
+    else:
+        words = line.split()
+        print(words[2])
+
+# Print email domains
+fhand = open("mbox-short.txt")
+for line in fhand:
+    line = line.strip()
+    if not line.startswith("From"):
+        continue
+    else:
+        email = line.split()[1]
+        domain = email.split("@")[1]
+        print(domain)

@@ -1,17 +1,33 @@
-# Prompt user for hours and hourly rate
-# Calculate gross pay using function
-# Hours above 40 have 1.5 times hourly rate
+# Repeatedly prompt the user for integers until 'done' is entered
+# Print out the largest and smallest of the numbers
+# If non-integer is entered, ignore it and reprompt the user
 
+largest = None
+smallest = None
+numbers = []
 
-def computepay(h, r):
-    if h <= 40:
-        return h * r
+while True:
+    num = input("Enter a number: ")
+    if num == "done":
+        break
     else:
-        return 40 * r + (h - 40) * r * 1.5
+        try:
+            num = int(num)
+        except:
+            print("Invalid input")
+            continue
+        else:
+            numbers.append(num)
 
+for n in numbers:
+    if largest is None or smallest is None:
+        largest = n
+        smallest = n
+    else:
+        if n > largest:
+            largest = n
+        if n < smallest:
+            smallest = n
 
-hours = float(input("Enter Hours: "))
-rate = float(input("Enter Rate: "))
-
-pay = computepay(h=hours, r=rate)
-print("Pay", pay)
+print("Maximum is", largest)
+print("Minimum is", smallest)

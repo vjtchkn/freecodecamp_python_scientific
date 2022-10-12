@@ -1,4 +1,16 @@
-# Elevator floor convertor EU -> US
-inp = input("Europe floor?: ")
-usf = int(inp) + 1
-print("US floor:", usf)
+astr = "Hello Bob"
+
+try:
+    istr = int(astr)
+except:
+    istr = -1
+
+print("First", istr)
+
+bstr = "123"
+try:
+    jstr = int(bstr)
+except:
+    jstr = -1
+
+print("Second", jstr)

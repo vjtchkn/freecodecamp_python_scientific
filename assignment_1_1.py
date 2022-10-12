@@ -1,1 +1,2 @@
-print("Hello everyone, it is great to be here!")
+# the code below should work now
+print("hello world")

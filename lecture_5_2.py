@@ -1,15 +1,11 @@
-# Function that returns greeting in the specified language
+# Propmpt user for input until they input 'done', otherwise print it
+# If the input starts with '#' then do not print it
 
-
-def greet(lang):
-    if lang == "es":
-        return "Hola"
-    elif lang == "fr":
-        return "Bonjour"
-    else:
-        return "Hello"
-
-
-print(greet("en"))
-print(greet("es"))
-print(greet("fr"))
+while True:
+    line = input("> ")
+    if line[0] == "#":
+        continue
+    if line == "done":
+        break
+    print(line)
+print("Done!")

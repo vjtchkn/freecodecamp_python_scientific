@@ -1,7 +1,23 @@
-# Ask user for hours and rate per hour, print gross pay
+# Prompt the user for a score between 0 and 1
+# If the score is out of range print an error and exit
+# Print grade based on score
 
-hours = input("Enter Hours: ")
-rate = input("Enter Hourly Rate: ")
+score = input("Enter Score: ")
 
-pay = float(hours) * float(rate)
-print("Pay:", pay)
+try:
+    score = float(score)
+except:
+    print("Provided score is not a number")
+
+if score < 0 or score > 1:
+    print("Provided score out of range")
+elif score < 0.6:
+    print("F")
+elif score < 0.7:
+    print("D")
+elif score < 0.8:
+    print("C")
+elif score < 0.9:
+    print("B")
+else:
+    print("A")

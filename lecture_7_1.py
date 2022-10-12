@@ -1,27 +1,53 @@
-# Iterate through a string and print out individual characters
-fruit = "banana"
-for letter in fruit:
-    print(letter)
+# Read in mbox.txt, print the object
+long = open("mbox.txt", "r")
+short = open("mbox-short.txt", "r")
+print(long)
+print(short)
 
+# Print lines in the file using a for loop
+# for line in short:
+#     print(line)
 
-# Count the number of letter 'a'
+# Count the number of lines in the file
+long = open("mbox.txt", "r")
 count = 0
-for letter in fruit:
-    if letter == "a":
+for line in long:
+    count += 1
+print("Line count:", count)
+
+# Read file as a string
+short = open("mbox-short.txt", "r")
+text = short.read()
+print(len(text))
+print(text[:20])
+
+# Print lines starting with "From:"
+short = open("mbox-short.txt", "r")
+for line in short:
+    line = line.strip()
+    if line.startswith("From:"):
+        print(line)
+
+# Print all lines from @uct.ac.za
+short = open("mbox-short.txt", "r")
+for line in short:
+    line = line.strip()
+    if not "@uct.ac.za" in line:
+        continue
+    print(line)
+
+# Make the file name a user input and count the lines starting with "Subject:"
+# Catch error if the file does not exist
+fname = input("Enter the file name: ")
+try:
+    fhand = open(fname, "r")
+except:
+    print("File cannot be opened:", fname)
+    quit()
+
+count = 0
+for line in fhand:
+    line = line.strip()
+    if line.startswith("Subject:"):
         count += 1
-print(count)
-
-
-# Check if 'a' is in the word
-if "a" in fruit:
-    print("Found it!")
-
-
-# Find and extract school host from email header
-header = "From stephen.marquard@uct.ac.za Sat Jan 5 09:14:16 2008"
-at_pos = header.find("@")
-print(at_pos)
-space_pos = header.find(" ", at_pos)
-print(space_pos)
-domain = header[at_pos + 1 : space_pos]
-print(domain)
+print("There were", count, "subject lines in", fname)

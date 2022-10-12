@@ -1,11 +1,15 @@
-rawstr = input("Enter a positive number: ")
+# Function that returns greeting in the specified language
 
-try:
-    ival = int(rawstr)
-except:
-    ival = -1
 
-if ival > 0:
-    print("Nice work")
-else:
-    print("Not a positive number")
+def greet(lang):
+    if lang == "es":
+        return "Hola"
+    elif lang == "fr":
+        return "Bonjour"
+    else:
+        return "Hello"
+
+
+print(greet("en"))
+print(greet("es"))
+print(greet("fr"))

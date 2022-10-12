@@ -1,15 +1,11 @@
-# Function that says hello in the specified language
+# Rocket launch countdown
 
+n = 5
+while n > 0:
+    print(n)
+    n = n - 1
+print("Blastoff!")
 
-def greet(lang):
-    if lang == "es":
-        print("Hola")
-    elif lang == "fr":
-        print("Bonjour")
-    else:
-        print("Hello")
-
-
-greet("en")
-greet("es")
-greet("fr")
+for i in [5, 4, 3, 2, 1]:
+    print(i)
+print("Blastoff!")
