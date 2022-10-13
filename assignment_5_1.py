@@ -1,33 +1,21 @@
-# Repeatedly prompt the user for integers until 'done' is entered
-# Print out the largest and smallest of the numbers
-# If non-integer is entered, ignore it and reprompt the user
+# Prompt user for numbers until 'done' is entered
+# Print out total, count and average of the numbers
+# Detect if user enters something besides a number
 
-largest = None
-smallest = None
-numbers = []
+total = 0
+count = 0
 
 while True:
-    num = input("Enter a number: ")
-    if num == "done":
+    number = input("Enter a number: ")
+    if number == "done":
         break
-    else:
-        try:
-            num = int(num)
-        except:
-            print("Invalid input")
-            continue
-        else:
-            numbers.append(num)
 
-for n in numbers:
-    if largest is None or smallest is None:
-        largest = n
-        smallest = n
-    else:
-        if n > largest:
-            largest = n
-        if n < smallest:
-            smallest = n
+    try:
+        number = float(number)
+    except:
+        print("Invalid input")
+        continue
+    total += number
+    count += 1
 
-print("Maximum is", largest)
-print("Minimum is", smallest)
+print("Total:", total, "Count:", count, "Average:", total / count)

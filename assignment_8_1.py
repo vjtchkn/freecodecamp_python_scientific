@@ -1,19 +1,28 @@
-# Build a list of unique words in a file
-# Open file romeo.txt, read it line by line
-# For each line split it into a list of words
-# For each word check if it is already in the list, otherwise add it
-# Sort and print the unique words
+# Function called chop() that takes a list and modifies it
+# Removing the first and last element and returns None
 
-fhand = open("romeo.txt")
-vocabulary = list()
+# Function called middle() that takes a list and returns a new list
+# Containing all but the first and last elements
 
-for line in fhand:
-    words = line.split()
-    for word in words:
-        if word in vocabulary:
-            continue
-        else:
-            vocabulary.append(word)
+fruit = ["apple", "banana", "orange", "pear"]
 
-vocabulary.sort()
-print(vocabulary)
+
+def chop(lst):
+    del lst[0]
+    del lst[-1]
+    return None
+
+
+print(fruit)
+chop(fruit)
+print(fruit)
+
+
+fruit = ["apple", "banana", "orange", "pear"]
+
+
+def middle(lst):
+    return lst[1:-1]
+
+
+print(middle(fruit))

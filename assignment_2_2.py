@@ -1,7 +1,4 @@
-# Ask user for hours and rate per hour, print gross pay
+# Ask user for input and print greeting
 
-hours = input("Enter Hours: ")
-rate = input("Enter Hourly Rate: ")
-
-pay = float(hours) * float(rate)
-print("Pay:", pay)
+name = input("Enter your name: ")
+print("Hello", name)

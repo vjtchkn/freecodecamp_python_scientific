@@ -1,23 +1,26 @@
-# Prompt the user for a score between 0 and 1
-# If the score is out of range print an error and exit
-# Print grade based on score
+# Ask the user for number of hours and hourly rate
+# If non numberic imput entered, print error message and exit
+# Calculate gross pay with any hours above 40 have the rate of 1.5 times the basic rate
+# Display the gross pay to the user
 
-score = input("Enter Score: ")
-
+hours = input("Enter Hours: ")
 try:
-    score = float(score)
+    hours = float(hours)
 except:
-    print("Provided score is not a number")
+    print("Error, please enter numeric input")
+    exit()
 
-if score < 0 or score > 1:
-    print("Provided score out of range")
-elif score < 0.6:
-    print("F")
-elif score < 0.7:
-    print("D")
-elif score < 0.8:
-    print("C")
-elif score < 0.9:
-    print("B")
+rate = input("Enter Rate: ")
+try:
+    rate = float(rate)
+except:
+    print("Error, please enter numeric input")
+    exit()
+
+
+if hours <= 40:
+    pay = hours * rate
 else:
-    print("A")
+    pay = 40 * rate + (hours - 40) * rate * 1.5
+
+print(pay)
